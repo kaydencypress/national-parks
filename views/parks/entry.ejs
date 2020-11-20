@@ -1,0 +1,62 @@
+<%- include("../partials/header-park-nav") %>
+
+<div class="row my-4">
+	<div class="col">
+		<div class="park-info-group">
+			<h3 class="park-info-title">Operating Hours</h3>
+			<% for (var i=0; i<parkData.operatingHours.length; i++) { %>
+				<div class="park-info-item">
+					<h5><%= parkData.operatingHours[i].name%></h5>
+					<p><%= parkData.operatingHours[i].description%></p>
+				</div>
+				<% if (parkData.operatingHours[i].standardHours.sunday) { %>
+					<div class="operating-hours park-info-item">
+						<h5>Standard Hours</h5>
+						<p>
+							<strong>Sunday:</strong> <%= parkData.operatingHours[i].standardHours.sunday%><br>
+							<strong>Monday:</strong> <%= parkData.operatingHours[i].standardHours.monday%><br>
+							<strong>Tuesday:</strong> <%= parkData.operatingHours[i].standardHours.tuesday%><br>
+							<strong>Wednesday:</strong> <%= parkData.operatingHours[i].standardHours.wednesday%><br>
+							<strong>Thursday:</strong> <%= parkData.operatingHours[i].standardHours.thursday%><br>
+							<strong>Friday:</strong> <%= parkData.operatingHours[i].standardHours.friday%><br>
+							<strong>Saturday:</strong> <%= parkData.operatingHours[i].standardHours.saturday%><br>
+						</p>
+					</div>
+				<% } %>
+				<% if (parkData.operatingHours[i].exceptions.length) { %>
+					<% for (var j=0; j<parkData.operatingHours[i].exceptions.length; j++) { %>
+						<div class="operating-hours park-info-item">
+							<h5><%= parkData.operatingHours[i].exceptions[j].name%></h5>
+							<h6 class="text-muted"><%= parkData.operatingHours[i].exceptions[j].startDate%> to <%= parkData.operatingHours[i].exceptions[0].endDate%></h6>
+							<p>
+								<strong>Sunday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.sunday%><br>
+								<strong>Monday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.monday%><br>
+								<strong>Tuesday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.tuesday%><br>
+								<strong>Wednesday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.wednesday%><br>
+								<strong>Thursday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.thursday%><br>
+								<strong>Friday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.friday%><br>
+								<strong>Saturday:</strong> <%= parkData.operatingHours[i].exceptions[j].exceptionHours.saturday%><br>
+							</p>
+						</div>
+					<% } %>
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+	<div class="col">
+		<div class="park-info-group">
+			<h3 class="park-info-title">Entrance Fees</h3>
+			<% for (i=0; i<parkData.entranceFees.length;i++) { %>
+				<div class="d-flex flex-row align-items-center park-info-item">
+					<div class="col-2">
+						<span class="entry-fee">$<%= Number(parkData.entranceFees[i].cost).toFixed(2)%></span>
+					</div>
+					<h5 class="col-4"><%= parkData.entranceFees[i].title %></h5>
+					<div class="col-6"><%= parkData.entranceFees[i].description%></div>
+				</div>
+			<% } %>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer-park") %>

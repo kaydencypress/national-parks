@@ -1,0 +1,30 @@
+<%- include("../partials/header-park-nav") %>
+
+<% let activityInfo = {} %>
+
+<div class="d-flex flex-row flex-wrap" id="activity-container">
+	<% for (var i=0; i<parkData.activities.length; i++) { %>
+		<!-- 	Get info about each activity available at this park	 -->
+		<% activityInfo = activities.find(activity => activity.id === parkData.activities[i].id) %>
+		<% if (activityInfo) { %>
+			<!-- 	Create card for activity	 -->
+			<form method="POST" action="/search">
+				<div class="activity-icon-and-caption">
+					<% if (activityInfo.relatedActivityId) { %>
+						<!-- 	If this is a specific activity that falls under a general activity, also use info from the general activity	 -->
+						<% relatedActivityInfo = (activities.find(activity => activity.id === activityInfo.relatedActivityId))%>
+							<i class="<%=relatedActivityInfo.class %>"></i>
+							<input type="submit" name="activities[]" value="<%=relatedActivityInfo.id%>" id="<%= activityInfo.id %>" hidden></input>
+					<% } else { %>
+							<i class="<%=activityInfo.class %>"></i>
+							<input type="submit" name="activities[]" value="<%=activityInfo.id%>" id="<%= activityInfo.id %>" hidden></input>
+					<% } %>
+					<label for="<%=activityInfo.id%>"><%=activityInfo.name%></label>
+				</div>
+			</form>
+		<% } %>
+	<% } %>
+</div>
+
+
+<%- include("../partials/footer-park") %>

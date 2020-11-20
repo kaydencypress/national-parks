@@ -1,0 +1,64 @@
+<%- include("../partials/header-park-nav") %>
+
+<script>
+	const mapPosition = {
+		lat: <%= parkData.latitude %>,
+		lng: <%= parkData.longitude %>,
+	}
+</script>
+
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_2FP9Nc_MOhWnQcG6Z99G9hApWKr6aU&callback=initMap">
+</script>
+
+<script defer>
+	function initMap() {
+		const googleMap = new google.maps.Map(document.getElementById("googleMap"), {
+		  center: mapPosition,
+		  zoom: 6,
+		})
+		const marker = new google.maps.Marker({
+			position: mapPosition,
+			map: googleMap,
+		})
+	}
+</script>
+
+<div class="row my-4">
+	<div class="col-6">
+		<div class="park-info-group">
+			<h3 class="park-info-title">Address & Directions</h3>
+			<div class="park-info-item">
+				<% for (var i=0; i<parkData.addresses.length; i++) { %>
+					<% if (parkData.addresses[i].type === "Physical") { %>
+						<div class="col">
+							<div id="googleMap" style="height: 30vh"></div>
+							<p class="address my-3">
+								<%= parkData.addresses[i].line1%><br>
+								<% if (parkData.addresses[i].line2) { %>
+									<%= parkData.addresses[i].line2%><br>
+								<% } %>
+								<% if (parkData.addresses[i].line3) { %>
+									<%= parkData.addresses[i].line3%><br>
+								<% } %>
+								<%= parkData.addresses[i].city%>, <%= parkData.addresses[i].stateCode%> <%= parkData.addresses[i].postalCode%>
+							</p>
+						<% } %>
+					<% } %>
+					<p><%= parkData.directionsInfo%></p>
+					<a href="<%= parkData.directionsUrl%>">View more directions</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-6">
+		<div class="park-info-group">
+			<h3 class="park-info-title">Weather</h3>
+			<p class="park-info-item">
+				<%= parkData.weatherInfo%>
+			</p>
+		</div>
+	</div>	
+</div>
+      
+<%- include("../partials/footer-park") %>

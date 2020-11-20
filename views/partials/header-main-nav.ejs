@@ -1,0 +1,131 @@
+<%- include("./header-no-nav") %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
+	<div class="container">
+		<a class="navbar-brand mr-5" href="/">EXPLORE</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<form class="form-inline mx-2" method="POST" action="/search">
+					  <input class="form-control" type="search" placeholder="Search for a park" aria-label="Search" name="q">
+					  <button class="btn" id="navbar-search" type="submit"><i class="fas fa-search"></i></button>
+				</form>
+				<li class="nav-item">
+					<a class="nav-link" href="/search">Find My Parks</a>
+				</li>
+				<li class="nav-item dropdown mx-2">
+					<a class="nav-link dropdown-toggle" href="/parks" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Browse</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<div class="row justify-content-around mx-2">
+							<div class="col-4 dropdown-column p-3">
+								<h5>By Activity</h5>
+								<form action="/search" method="POST">
+									<button type="submit" class="dropdown-item" name="activities[]" value="BFF8C027-7C8F-480B-A5F8-CD8CE490BFBA">Hiking</button>
+								</form>
+								<form action="/search" method="POST">
+									<button type="submit" class="dropdown-item" name="activities[]" value="3EBF7EAC-68FC-4754-B6A4-0C38A1583D45">Snorkeling</button>
+								</form>
+								<form action="/search" method="POST">
+									<button type="submit" class="dropdown-item" name="activities[]" value="13A57703-BB1A-41A2-94B8-53B692EB7238">Astronomy</button>
+								</form>
+								<form action="/search" method="POST">
+									<button type="submit" class="dropdown-item" name="activities[]" value="09DF0950-D319-4557-A57E-04CD2F63FF42">Arts & Culture</button>
+								</form>
+								<form action="/search" method="POST">
+									<button type="submit" class="dropdown-item" name="activities[]" value="A59947B7-3376-49B4-AD02-C0423E08C5F7">Camping</button>
+								</form>
+								<a class="dropdown-item" href="/search">
+									More <i class="fas fa-arrow-right"></i>
+								</a> 
+							</div>
+							<div class="col-4 dropdown-column p-3">
+								<h5>By Location</h5>
+								<form action="/search" method="POST">
+									<input type="hidden" name="states[]" value="WA">
+									<input type="hidden" name="states[]" value="OR">
+									<input type="hidden" name="states[]" value="CA">
+									<input type="hidden" name="states[]" value="NV">
+									<input type="hidden" name="states[]" value="ID">
+									<input type="hidden" name="states[]" value="UT">
+									<input type="hidden" name="states[]" value="MT">
+									<input type="hidden" name="states[]" value="WY">
+									<input type="hidden" name="states[]" value="CO">
+									<input type="hidden" name="states[]" value="AK">
+									<input type="hidden" name="states[]" value="HI">
+									<button type="submit" class="dropdown-item">West</button>
+								</form>
+								<form action="/search" method="POST">
+									<input type="hidden" name="states[]" value="ND">
+									<input type="hidden" name="states[]" value="SD">
+									<input type="hidden" name="states[]" value="NE">
+									<input type="hidden" name="states[]" value="KS">
+									<input type="hidden" name="states[]" value="MN">
+									<input type="hidden" name="states[]" value="IA">
+									<input type="hidden" name="states[]" value="MO">
+									<input type="hidden" name="states[]" value="WI">
+									<input type="hidden" name="states[]" value="IL">
+									<input type="hidden" name="states[]" value="MI">
+									<input type="hidden" name="states[]" value="IN">
+									<input type="hidden" name="states[]" value="OH">
+									<button type="submit" class="dropdown-item">Midwest</button>
+								</form>
+								<form action="/search" method="POST">
+									<input type="hidden" name="states[]" value="ME">
+									<input type="hidden" name="states[]" value="NH">
+									<input type="hidden" name="states[]" value="VT">
+									<input type="hidden" name="states[]" value="MA">
+									<input type="hidden" name="states[]" value="RI">
+									<input type="hidden" name="states[]" value="CT">
+									<input type="hidden" name="states[]" value="NY">
+									<input type="hidden" name="states[]" value="PA">
+									<input type="hidden" name="states[]" value="NJ">
+									<input type="hidden" name="states[]" value="DE">
+									<input type="hidden" name="states[]" value="MD">
+									<button type="submit" class="dropdown-item">Northeast</button>
+								</form>
+								<form action="/search" method="POST">
+									<input type="hidden" name="states[]" value="AZ">
+									<input type="hidden" name="states[]" value="NM">
+									<input type="hidden" name="states[]" value="TX">
+									<input type="hidden" name="states[]" value="OK">
+									<button type="submit" class="dropdown-item">Soutwest</button>
+								</form>
+								<form action="/search" method="POST">
+									<input type="hidden" name="states[]" value="AR">
+									<input type="hidden" name="states[]" value="LA">
+									<input type="hidden" name="states[]" value="MS">
+									<input type="hidden" name="states[]" value="AL">
+									<input type="hidden" name="states[]" value="GA">
+									<input type="hidden" name="states[]" value="FL">
+									<input type="hidden" name="states[]" value="SC">
+									<input type="hidden" name="states[]" value="NC">
+									<input type="hidden" name="states[]" value="VA">
+									<input type="hidden" name="states[]" value="WV">
+									<input type="hidden" name="states[]" value="KY">
+									<input type="hidden" name="states[]" value="TN">
+									<button type="submit" class="dropdown-item">Southeast</button>
+								</form>
+								<a class="dropdown-item" href="/search">
+									More <i class="fas fa-arrow-right"></i>
+								</a>
+							</div>
+							<div class="col-4 p-3">
+								<h5>By Featured</h5>
+								<a class="dropdown-item" href="/parks/glac">Glacier</a>
+								<a class="dropdown-item" href="/parks/grca">Grand Canyon</a>
+								<a class="dropdown-item" href="/parks/maca">Mammoth Cave</a>
+								<a class="dropdown-item" href="/parks/redw">Redwood</a>
+								<a class="dropdown-item" href="/parks/yell">Yellowstone</a>
+								<a class="dropdown-item" href="/search">
+									More <i class="fas fa-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+		</ul>
+	  </div>
+	</div>
+</nav>

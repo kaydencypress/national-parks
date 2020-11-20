@@ -1,0 +1,24 @@
+<%- include("./header-main-nav") %>
+
+<div class="container-lg my-3 justify-content-center p-70" id="overview-container">
+	<div class="row justify-content-center mb-2">
+		<h1><%= parkData.fullName %></h1>
+	</div>
+	<div class="row justify-content-center">
+		<ul class="nav nav-fill justify-content-center" id="park-nav">
+		  <li class="nav-item">
+			<a class="nav-link active" href="/parks/<%= parkData.parkCode %>">Overview</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/parks/<%= parkData.parkCode %>/location">Location</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/parks/<%= parkData.parkCode %>/entry">Entry</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/parks/<%= parkData.parkCode %>/activities">Activities</a>
+		  </li>
+		</ul>
+	</div>
+
+
