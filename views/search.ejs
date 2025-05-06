@@ -2,22 +2,32 @@
 
 <div class="container-fluid d-flex flex-column p-70">
 	<form method="POST" action="/search">
-		<h2 class="search-section-title">Choose Activities</h2>
-		<div class="d-flex flex-row flex-wrap justify-content-center">
-			<% for (var i=0; i<activities.length; i++) { %>
-				<% if (activities[i].searchable) { %>
-					<div class="activity-icon-and-caption">
-						<i class="<%= activities[i].class%>"></i>
-						<input type="checkbox" name="activities[]" value="<%=activities[i].id%>" id="<%=activities[i].id%>" hidden></input>
-						<label for="<%=activities[i].id%>"><%=activities[i].name%></label>
-					</div>
+		<div class="my-3">
+			<h2 class="search-section-title">Choose Activities</h2>
+			<div class="d-flex flex-row flex-wrap justify-content-center">
+				<% for (var i=0; i<activities.length; i++) { %>
+					<% if (activities[i].searchable) { %>
+						<div class="activity-icon-and-caption">
+							<div class="activity-icon">
+								<i class="<%= activities[i].class%>"></i>
+							</div>
+							<input type="checkbox" name="activities[]" value="<%=activities[i].id%>" id="<%=activities[i].id%>" hidden></input>
+							<label for="<%=activities[i].id%>"><%=activities[i].name%></label>
+						</div>
+					<% } %>
 				<% } %>
-			<% } %>
+			</div>
 		</div>
-		<h2 class="search-section-title">Choose locations</h2>
-		<div id="map"></div>
-		<div id="selected_states"></div>
-		<input type="submit"></button>
+		<hr>
+		<div class="my-3 map-section">
+			<h2 class="search-section-title">Choose locations</h2>
+			<div id="map"></div>
+			<div id="selected_states"></div>
+		</div>
+		<hr>
+		<div class="d-flex justify-content-center my-5">
+			<button class="btn btn-warning">Find My Parks</button>
+		</div>
 	</form>
 </div>
 
