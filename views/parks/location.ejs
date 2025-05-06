@@ -1,29 +1,5 @@
 <%- include("../partials/header-park-nav") %>
 
-<script>
-	const mapPosition = {
-		lat: <%= parkData.latitude %>,
-		lng: <%= parkData.longitude %>,
-	}
-</script>
-
-<script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_2FP9Nc_MOhWnQcG6Z99G9hApWKr6aU&callback=initMap">
-</script>
-
-<script defer>
-	function initMap() {
-		const googleMap = new google.maps.Map(document.getElementById("googleMap"), {
-		  center: mapPosition,
-		  zoom: 6,
-		})
-		const marker = new google.maps.Marker({
-			position: mapPosition,
-			map: googleMap,
-		})
-	}
-</script>
-
 <div class="row my-4">
 	<div class="col-6">
 		<div class="park-info-group">
@@ -32,7 +8,6 @@
 				<% for (var i=0; i<parkData.addresses.length; i++) { %>
 					<% if (parkData.addresses[i].type === "Physical") { %>
 						<div class="col">
-							<div id="googleMap" style="height: 30vh"></div>
 							<p class="address my-3">
 								<%= parkData.addresses[i].line1%><br>
 								<% if (parkData.addresses[i].line2) { %>
