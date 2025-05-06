@@ -43,20 +43,6 @@
 			<% } %>
 		</div>
 	</div>
-	<div class="col">
-		<div class="park-info-group">
-			<h3 class="park-info-title">Entrance Fees</h3>
-			<% for (i=0; i<parkData.entranceFees.length;i++) { %>
-				<div class="d-flex flex-row align-items-center park-info-item">
-					<div class="col-2">
-						<span class="entry-fee">$<%= Number(parkData.entranceFees[i].cost).toFixed(2)%></span>
-					</div>
-					<h5 class="col-4"><%= parkData.entranceFees[i].title %></h5>
-					<div class="col-6"><%= parkData.entranceFees[i].description%></div>
-				</div>
-			<% } %>
-		</div>
-	</div>
 </div>
 
 <%- include("../partials/footer-park") %>
