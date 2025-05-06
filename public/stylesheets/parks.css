@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 :root {
-	--orange: #FF8B45;
-	--orange-dark: #DE6F34;
-	--gray: rgba(0, 0, 0, 0.1);
+	--orange: hsl(9, 61%, 70%);
+	--orange-dark: #C84630;
+	--gray: #898989;
+	--gray-light: #E3E3E3;
+	--green: #5DA271;
 }
 
 body {
@@ -15,6 +17,11 @@ body {
 	font-family: 'Rock Salt', cursive;
 	font-size: 1rem;
 	font-weight: bold;
+	color: var(--orange-dark) !important;
+}
+
+.nav-link {
+	color: var(--orange-dark) !important;
 }
 
 .dropdown-menu {
@@ -147,10 +154,10 @@ input[type=checkbox]:checked + label {
 	align-items: center;
 	justify-content: flex-end;
 	text-align: center;
-	height: 80px;
+	height: 60px;
 	width: 400px;
 	margin: 8px;
-	border: 1px solid black;
+	border: 1px solid var(--green);
 	border-radius: 15px;
 	font-size: 1rem;
 }
@@ -158,8 +165,9 @@ input[type=checkbox]:checked + label {
 .activity-icon {
 	width: 100px;
 	text-align: center;
-	font-size: 3.5rem;
+	font-size: 2.5rem;
 	padding: 10px 10px;
+	color: var(--green);
 }
 
 .activity-icon-and-caption h5,label {
@@ -169,7 +177,7 @@ input[type=checkbox]:checked + label {
 	border-bottom-right-radius: 15px;
 	width: 300px;
 	height: 100%;
-	background: black;
+	background: var(--green);
 	color: white;
 	font-size: 1.5rem;
 	display: flex;
@@ -201,6 +209,7 @@ input[type=checkbox]:checked + label {
 	padding: 10px 20px;
 	margin: 0;
 	color: white;
+	background-color: var(--green);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
@@ -223,6 +232,10 @@ input[type=checkbox]:checked + label {
 .masonry-item h5 {
 	margin: 0;
 	object-fit: contain;
+}
+
+.masonry-item h5 a {
+	color: var(--green);
 }
 
 .masonry-item img {
@@ -269,6 +282,7 @@ input[type=checkbox]:checked + label {
 
 #new-search {
 	float: right;
+	background-color: var(--orange-dark);
 }
 
 #new-search a {
